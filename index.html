@@ -2,7 +2,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Wawancara Petani Terong</title>
+  <title>Daftar Kelompok Pengumpul Tugas</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
@@ -15,139 +15,186 @@
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      z-index: -1; /* biar di belakang konten */
+      z-index: -1;
       background: linear-gradient(to bottom, #d1fae5, #f0fdf4, #ffffff);
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col items-center px-4 py-10">
+<body class="min-h-screen flex flex-col items-center px-4 py-10 bg-white">
   <canvas id="bgCanvas"></canvas>
-
   <main class="w-full max-w-4xl flex flex-col space-y-16 relative z-10">
-    <h1 class="text-4xl font-extrabold text-green-900 mb-8 text-center sm:text-5xl">
-      Tugas pkwu x-11 <br/> kelompok 2
-    </h1>
-
-    <!-- konten kamu tetap sama -->
-    <section class="bg-white rounded-3xl shadow-2xl p-10 sm:p-14" id="about">
-      <h3 class="text-3xl font-bold text-green-900 mb-8 text-center sm:text-4xl">
-        Tentang Petani Terong <br>
-      </h3>
-     
-      <div class="flex flex-col md:flex-row md:items-center md:space-x-12">
-        <img src="https://iili.io/Kd3JrZJ.md.jpg" 
-             alt="Seorang petani terong sedang memanen terong ungu segar" 
-             class="rounded-3xl shadow-lg w-full md:w-1/2 object-cover max-h-96"/>
-        <div class="mt-8 md:mt-0 text-green-800 md:w-1/2 text-lg leading-relaxed">
-          <h4 class="text-2xl font-semibold mb-4">Pak Mangsur, Petani Terong Kosbar</h4>
-          <p>Pak Mangsur telah bertani terong selama lebih dari 2 tahun. 
-             Beliau menggabungkan metode tradisional dan teknologi modern 
-             untuk menghasilkan terong berkualitas tinggi.</p>
+    <section class="flex flex-col items-center space-y-6">
+      <img src="https://iili.io/KBYn8la.md.jpg" 
+           alt="Portrait of Pak Taufik Rahman, a middle-aged man wearing glasses and a batik shirt, smiling warmly" 
+           class="rounded-full shadow-lg w-36 h-36 object-cover" width="150" height="150"/>
+      <h1 class="text-4xl font-extrabold text-green-900 text-center sm:text-5xl">
+        Salam Hormat untuk Bapak Taufik Rahman
+      </h1>
+      <p class="text-center text-green-800 text-lg max-w-3xl leading-relaxed px-4">
+        Berikut adalah daftar kelompok yang telah mengumpulkan tugas wawancara petani. Terima kasih atas pengertian Bapak yang telah banyak mentolerir keterlambatan kami dalam mengumpulkan tugas ini.
+      </p>
+    </section>
+    <section class="grid grid-cols-1 sm:grid-cols-2 gap-10">
+      <div class="bg-gray-300 rounded-3xl shadow-lg p-8 flex flex-col justify-between cursor-not-allowed select-none opacity-60">
+        <div>
+          <h2 class="text-2xl font-bold text-gray-700 mb-4">
+            Kelompok 1
+          </h2>
+          <p class="text-gray-600 text-lg mb-6">
+            Jenis Petani: Petani Padi
+          </p>
+          <p class="text-gray-600 italic">
+            Kelompok ini dibubarkan dan tidak dapat mengumpulkan tugas.
+          </p>
         </div>
+        <button class="mt-6 bg-gray-500 text-white font-semibold py-3 rounded-lg cursor-not-allowed" disabled>
+          Tidak Aktif
+        </button>
       </div>
-    </section>
-
-    <section class="w-full" id="video">
-      <h3 class="text-3xl font-extrabold text-green-900 mb-8 text-center sm:text-4xl">
-        Wawancara Petani Terong
-      </h3>
-      <div class="relative rounded-xl shadow-2xl overflow-hidden bg-white mx-auto max-w-full aspect-video">
-        <iframe src="https://drive.google.com/file/d/1iX7c1kXkR6AKpAnBVd3jjySwJTga1T8k/preview"
-                class="w-full h-full rounded-xl"
-                allow="autoplay; fullscreen; picture-in-picture"
-                title="Wawancara Petani Terong"></iframe>
+      <div class="bg-white rounded-3xl shadow-2xl p-8 flex flex-col justify-between border-4 border-green-700 hover:shadow-green-500 transition-shadow duration-300">
+        <div>
+          <h2 class="text-2xl font-bold text-green-900 mb-4">
+            Kelompok 2
+          </h2>
+          <p class="text-green-800 text-lg mb-6">
+            Jenis Petani: Petani Terong
+          </p>
+          <p class="text-green-700">
+            Kelompok ini telah mengumpulkan tugas wawancara petani terong sesuai dengan yang ditugaskan.
+          </p>
+        </div>
+        <button class="mt-6 bg-green-700 hover:bg-green-800 text-white font-semibold py-3 rounded-lg shadow-lg transition focus:outline-none focus:ring-4 focus:ring-green-400">
+          <a href="/2">Lihat Detail</a>
+        </button>
       </div>
-      <div class="mt-6 flex justify-center">
-        <a href="https://drive.google.com/uc?export=download&id=1iX7c1kXkR6AKpAnBVd3jjySwJTga1T8k"
-           download="wawancara_petani_terong.mp4"
-           class="inline-flex items-center bg-green-700 hover:bg-green-800 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition focus:outline-none focus:ring-4 focus:ring-green-400">
-          <i class="fas fa-download mr-3"></i> Download Video
-        </a>
+      <div class="bg-white rounded-3xl shadow-lg p-8 flex flex-col justify-between border-2 border-gray-300 opacity-50 cursor-not-allowed select-none">
+        <div>
+          <h2 class="text-2xl font-bold text-gray-500 mb-4">
+            Kelompok 3
+          </h2>
+          <p class="text-gray-500 text-lg mb-6">
+            Jenis Petani: Petani Jagung
+          </p>
+          <p class="text-gray-500 italic">
+            Belum mengumpulkan tugas.
+          </p>
+        </div>
+        <button class="mt-6 bg-gray-400 text-white font-semibold py-3 rounded-lg cursor-not-allowed" disabled>
+          Belum Mengumpulkan
+        </button>
       </div>
-    </section>
-
-    <section id="gallery" class="w-full max-w-4xl mx-auto">
-      <h3 class="text-3xl font-bold text-green-900 mb-8 text-center sm:text-4xl">
-        Galeri Budidaya Terong
-      </h3>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-        <img src="https://iili.io/Kd3J8yF.md.jpg" 
-             alt="Tanaman terong muda" 
-             class="rounded-3xl shadow-lg w-full h-64 object-cover"/>
-        <img src="https://iili.io/Kd3Jgja.md.jpg" 
-             alt="Petani memanen terong" 
-             class="rounded-3xl shadow-lg w-full h-64 object-cover"/>
+      <div class="bg-white rounded-3xl shadow-lg p-8 flex flex-col justify-between border-2 border-gray-300 opacity-50 cursor-not-allowed select-none">
+        <div>
+          <h2 class="text-2xl font-bold text-gray-500 mb-4">
+            Kelompok 4
+          </h2>
+          <p class="text-gray-500 text-lg mb-6">
+            Jenis Petani: Petani Cabai
+          </p>
+          <p class="text-gray-500 italic">
+            Belum mengumpulkan tugas.
+          </p>
+        </div>
+        <button class="mt-6 bg-gray-400 text-white font-semibold py-3 rounded-lg cursor-not-allowed" disabled>
+          Belum Mengumpulkan
+        </button>
+      </div>
+      <div class="bg-white rounded-3xl shadow-lg p-8 flex flex-col justify-between border-2 border-gray-300 opacity-50 cursor-not-allowed select-none">
+        <div>
+          <h2 class="text-2xl font-bold text-gray-500 mb-4">
+            Kelompok 5
+          </h2>
+          <p class="text-gray-500 text-lg mb-6">
+            Jenis Petani: Petani Kedelai
+          </p>
+          <p class="text-gray-500 italic">
+            Belum mengumpulkan tugas.
+          </p>
+        </div>
+        <button class="mt-6 bg-gray-400 text-white font-semibold py-3 rounded-lg cursor-not-allowed" disabled>
+          Belum Mengumpulkan
+        </button>
+      </div>
+      <div class="bg-white rounded-3xl shadow-lg p-8 flex flex-col justify-between border-2 border-gray-300 opacity-50 cursor-not-allowed select-none">
+        <div>
+          <h2 class="text-2xl font-bold text-gray-500 mb-4">
+            Kelompok 6
+          </h2>
+          <p class="text-gray-500 text-lg mb-6">
+            Jenis Petani: Petani Singkong
+          </p>
+          <p class="text-gray-500 italic">
+            Belum mengumpulkan tugas.
+          </p>
+        </div>
+        <button class="mt-6 bg-gray-400 text-white font-semibold py-3 rounded-lg cursor-not-allowed" disabled>
+          Belum Mengumpulkan
+        </button>
       </div>
     </section>
   </main>
+  <script>
+    const canvas = document.getElementById("bgCanvas");
+    const ctx = canvas.getContext("2d");
+    let stars = [];
+    let w, h;
 
+    function resizeCanvas() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    }
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
 
-<script>
-  const canvas = document.getElementById("bgCanvas");
-  const ctx = canvas.getContext("2d");
-  let stars = [];
-  let w, h;
+    for (let i = 0; i < 44; i++) {
+      stars.push({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        radius: Math.random() * 1 + 2,
+        dx: (Math.random() - 0.5) * 0.01,
+        dy: (Math.random() - 0.5) * 1.5
+      });
+    }
 
-  function resizeCanvas() {
-    w = canvas.width = window.innerWidth;
-    h = canvas.height = window.innerHeight;
-  }
-  window.addEventListener("resize", resizeCanvas);
-  resizeCanvas();
+    function drawStars() {
+      ctx.clearRect(0, 0, w, h);
+      ctx.fillStyle = "rgba(5, 150, 105, 0.4)";
+      stars.forEach(star => {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fill();
 
-  // bikin lebih banyak & lebih besar
-  for (let i = 0; i < 44; i++) {
-    stars.push({
-      x: Math.random() * w,
-      y: Math.random() * h,
-      radius: Math.random() * 1 + 2, // 2 - 6 px
-      dx: (Math.random() - 0.5) * 0.01, // speed lebih cepat
-      dy: (Math.random() - 0.5) * 1.5
+        star.x += star.dx;
+        star.y += star.dy;
+
+        if (star.x < 0 || star.x > w) star.dx *= -1;
+        if (star.y < 0 || star.y > h) star.dy *= -1;
+      });
+    }
+
+    function animate() {
+      drawStars();
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    document.addEventListener("mousemove", e => {
+      stars.forEach(star => {
+        let distX = e.clientX - star.x;
+        let distY = e.clientY - star.y;
+        let dist = Math.sqrt(distX * distX + distY * distY);
+        if (dist < 120) {
+          star.x -= distX * 0.05;
+          star.y -= distY * 0.05;
+        }
+      });
     });
-  }
 
-  function drawStars() {
-    ctx.clearRect(0, 0, w, h);
-    ctx.fillStyle = "rgba(5, 150, 105, 0.4)"; // hijau lebih pekat
-    stars.forEach(star => {
-      ctx.beginPath();
-      ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-      ctx.fill();
-
-      star.x += star.dx;
-      star.y += star.dy;
-
-      if (star.x < 0 || star.x > w) star.dx *= -1;
-      if (star.y < 0 || star.y > h) star.dy *= -1;
+    window.addEventListener("scroll", () => {
+      stars.forEach(star => {
+        star.dy += 0.1;
+      });
     });
-  }
-
-  function animate() {
-    drawStars();
-    requestAnimationFrame(animate);
-  }
-  animate();
-
-  // interaksi mouse
-  document.addEventListener("mousemove", e => {
-    stars.forEach(star => {
-      let distX = e.clientX - star.x;
-      let distY = e.clientY - star.y;
-      let dist = Math.sqrt(distX * distX + distY * distY);
-      if (dist < 120) { // radius interaksi lebih besar
-        star.x -= distX * 0.05;
-        star.y -= distY * 0.05;
-      }
-    });
-  });
-
-  // animasi saat scroll
-  window.addEventListener("scroll", () => {
-    stars.forEach(star => {
-      star.dy += 0.1;
-    });
-  });
-</script>
-
+  </script>
 </body>
 </html>
