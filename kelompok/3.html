@@ -1,0 +1,128 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Wawancara Petani Terong</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2921/2921822.png" type="image/png">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+    canvas#bgCanvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1; /* biar di belakang konten */
+      background: linear-gradient(to bottom, #d1fae5, #f0fdf4, #ffffff);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center px-4 py-10">
+  <canvas id="bgCanvas"></canvas>
+
+  <main class="w-full max-w-4xl flex flex-col space-y-16 relative z-10">
+    <h1 class="text-4xl font-extrabold text-green-900 mb-8 text-center sm:text-5xl">
+      Tugas pkwu x-11 <br/> kelompok 3
+    </h1>
+
+    <!-- konten kamu tetap sama -->
+    <section class="bg-white rounded-3xl shadow-2xl p-10 sm:p-14" id="about">
+      <h3 class="text-3xl font-bold text-green-900 mb-8 text-center sm:text-4xl">
+        Tentang Petani Cabai Wagir <br>
+      </h3>
+
+    </section>
+
+    <section class="w-full" id="video">
+      <h3 class="text-3xl font-extrabold text-green-900 mb-8 text-center sm:text-4xl">
+        Wawancara Petani Terong
+      </h3>
+      <div class="relative rounded-xl shadow-2xl overflow-hidden bg-white mx-auto max-w-full aspect-video">
+        <iframe src="https://drive.google.com/file/d/1QrfJkrKJ8kUeXC5T7FhSMHLReRcia48A/preview"
+                class="w-full h-full rounded-xl"
+                allow="autoplay; fullscreen; picture-in-picture"
+                title="Wawancara Petani Cabai"></iframe>
+      </div>
+      <div class="mt-6 flex justify-center">
+        <a href="https://drive.google.com/uc?export=download&id=1QrfJkrKJ8kUeXC5T7FhSMHLReRcia48A"
+           download="wawancara_petani_cabai.mp4"
+           class="inline-flex items-center bg-green-700 hover:bg-green-800 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition focus:outline-none focus:ring-4 focus:ring-green-400">
+          <i class="fas fa-download mr-3"></i> Download Video
+        </a>
+      </div>
+    </section>
+  </main>
+
+
+<script>
+  const canvas = document.getElementById("bgCanvas");
+  const ctx = canvas.getContext("2d");
+  let stars = [];
+  let w, h;
+
+  function resizeCanvas() {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+  }
+  window.addEventListener("resize", resizeCanvas);
+  resizeCanvas();
+
+  // bikin lebih banyak & lebih besar
+  for (let i = 0; i < 44; i++) {
+    stars.push({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      radius: Math.random() * 1 + 2, // 2 - 6 px
+      dx: (Math.random() - 0.5) * 0.01, // speed lebih cepat
+      dy: (Math.random() - 0.5) * 1.5
+    });
+  }
+
+  function drawStars() {
+    ctx.clearRect(0, 0, w, h);
+    ctx.fillStyle = "rgba(5, 150, 105, 0.4)"; // hijau lebih pekat
+    stars.forEach(star => {
+      ctx.beginPath();
+      ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+      ctx.fill();
+
+      star.x += star.dx;
+      star.y += star.dy;
+
+      if (star.x < 0 || star.x > w) star.dx *= -1;
+      if (star.y < 0 || star.y > h) star.dy *= -1;
+    });
+  }
+
+  function animate() {
+    drawStars();
+    requestAnimationFrame(animate);
+  }
+  animate();
+
+  // interaksi mouse
+  document.addEventListener("mousemove", e => {
+    stars.forEach(star => {
+      let distX = e.clientX - star.x;
+      let distY = e.clientY - star.y;
+      let dist = Math.sqrt(distX * distX + distY * distY);
+      if (dist < 120) { // radius interaksi lebih besar
+        star.x -= distX * 0.05;
+        star.y -= distY * 0.05;
+      }
+    });
+  });
+
+  // animasi saat scroll
+  window.addEventListener("scroll", () => {
+    stars.forEach(star => {
+      star.dy += 0.1;
+    });
+  });
+</script>
+
+</body>
+</html>
